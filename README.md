@@ -5,15 +5,15 @@
 - [x] Provide WEB system description in few sentences - its purpose, users, etc.
 
 ## Entity definition
-- [ ] Define the entity ("object" that will be manipulated) of WEB system
-- [ ] Entity should have a name
-- [ ] Entity should have 3 mandatory attributes:
-    - [ ] ID - depending on specific service this could be a number or string
-    - [ ] Creation date - (if applicable for specific service) ISO 8601 format date string
-    - [ ] Modification date - (if applicable for specific service) ISO 8601 format date string
-- [ ] Entity should have at least 5 custom attributes
-    - [ ] Each attribute should have a type defined: number, string, ISO 8601 date string, boolean, object, array or other
-    - [ ] Each attribute should have restrictions defined: list of constants, or number range, or string length, or string format, or object schema, or array schema or other. For example, you can use `joi` language to define restrictions: https://github.com/hapijs/joi/blob/v13.1.2/API.md
+- [x] Define the entity ("object" that will be manipulated) of WEB system
+- [x] Entity should have a name
+- [x] Entity should have 3 mandatory attributes:
+    - [x] ID - depending on specific service this could be a number or string
+    - [x] Creation date - (if applicable for specific service) ISO 8601 format date string
+    - [x] Modification date - (if applicable for specific service) ISO 8601 format date string
+- [x] Entity should have at least 5 custom attributes
+    - [x] Each attribute should have a type defined: number, string, ISO 8601 date string, boolean, object, array or other
+    - [x] Each attribute should have restrictions defined: list of constants, or number range, or string length, or string format, or object schema, or array schema or other. For example, you can use `joi` language to define restrictions: https://github.com/hapijs/joi/blob/v13.1.2/API.md
 
 ## API definition
 - [x] Define specific service (konkrečios paslaugos) API methods that WEB system is going to use
