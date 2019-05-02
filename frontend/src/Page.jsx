@@ -1,20 +1,7 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import { grey, yellow } from '@material-ui/core/colors';
-import SvgIcon from '@material-ui/core/SvgIcon';
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import { AppBar, Toolbar, Paper, Grid } from '@material-ui/core';
 import '../styles/style.css';
 import background from '../public/assets/background.png';
-import background2 from '../public/assets/background2.png';
 import background3 from '../public/assets/background3.png';
-import circle from '../public/assets/circle.png';
-import arrow from '../public/assets/arrow.png';
-import {
-  Container, Row, Col
-} from 'reactstrap';
 import Additional from './Additional.jsx';
 import Frontpage from './Frontpage.jsx';
 
@@ -32,7 +19,7 @@ export default class Page extends React.Component {
 
   componentDidMount() {
     var statusText = '';
-    fetch('http://api.airvisual.com/v2/nearest_city?key=LdTsKf5zgrF7qQ4Mb')
+    fetch('http://localhost:4000/artimiausias')
       .then(res => res.json())
       .then(json => {
         this.setState({
@@ -77,7 +64,7 @@ export default class Page extends React.Component {
   }
 
   handleClick(country, city) {
-    fetch('http://api.airvisual.com/v2/city?city=' + country + '&state=' + country + '&country='+ city +'&key=LdTsKf5zgrF7qQ4Mb')
+    fetch('http://localhost:4000/pasirinktas?country='+ country +'&city=' + city)
       .then(res => res.json())
       .then(json => {
         this.setState({

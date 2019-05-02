@@ -23,7 +23,7 @@ export default class Additional extends React.Component {
         var citiesTemp = read_cookie('cities'+ this.props.country);
         if (citiesTemp.length == 0) {
             console.log('NULL');
-            fetch('http://api.airvisual.com/v2/states?country=' + this.props.country + '&key=LdTsKf5zgrF7qQ4Mb')
+            fetch('http://localhost:4000/miestai?country=' + this.props.country)
                 .then(res => res.json())
                 .then(json => {
                     this.setState({
@@ -54,7 +54,7 @@ export default class Additional extends React.Component {
     render() {
         let cityCards = this.state.cities.map((city, index) => {
             return (
-                <Button key={city.state} className="button" variant="contained" size="large" color="primary" align="center" style={{ color: "white", backgroundColor: "black" }} onClick={() => this.props.handleClick(city.state, this.props.country)}>
+                <Button key={city.state} className="button" variant="contained" size="large" color="primary" align="center" style={{ color: "white", backgroundColor: "black" }} onClick={() => this.props.handleClick(this.props.country,city.state)}>
                     {city.state}
                     <Button className="button" variant="contained" size="large" color="primary" align="center" style={{ color: "white", backgroundColor: "black" }} onClick={() => this.removeCity(index)}>X</Button>
                 </Button>

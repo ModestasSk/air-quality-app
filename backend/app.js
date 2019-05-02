@@ -10,14 +10,6 @@ const app = express();
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'dist')));
 
 app.get('*', (_req, res) => {
-  /*
-  axios.get("http://api.airvisual.com/v2/nearest_city?key=LdTsKf5zgrF7qQ4Mb")
-  .then((res)=>{
-      console.log(res.data);
-      
-  })
-  */
-  
   res.cookie('firstCookie', 'test');
   res.sendFile(path.join(__dirname, '..', 'frontend', 'dist', 'index.html'));
 });

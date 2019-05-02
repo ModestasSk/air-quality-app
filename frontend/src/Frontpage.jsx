@@ -12,11 +12,9 @@ export default class Frontpage extends React.Component {
     this.state = {
       isLoaded: false,
       country : '',
-      region: '',
     }
    
   }
- 
   render() {
 
     var { country, region, isLoaded } = this.state;
