@@ -16,16 +16,6 @@ export default class Frontpage extends React.Component {
     }
    
   }
-
-  selectCountry (val) {
-    this.setState({ country: val });
-    
-  }
-
-  selectRegion (val) {
-    this.setState({ region: val });
-    this.props.handleClick(this.country, this.city)
-  }
  
   render() {
 

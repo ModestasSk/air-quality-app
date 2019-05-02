@@ -1,0 +1,33 @@
+{
+    "status": "success",
+    "data": {
+       "city": "Vilnius",
+       "state": "Vilnius",
+       "country": "Lithuania",
+       "location": {
+          "type": "Point",
+          "coordinates": [
+             25.289444,
+             54.71528
+          ]
+       },
+       "current": {
+          "weather": {
+             "ts": "2019-05-02T17:00:00.000Z",
+             "hu": 87,
+             "ic": "09d",
+             "pr": 995,
+             "tp": 8,
+             "wd": 250,
+             "ws": 6.7
+          },
+          "pollution": {
+             "ts": "2019-05-02T17:00:00.000Z",
+             "aqius": 82,
+             "mainus": "p2",
+             "aqicn": 41,
+             "maincn": "p1"
+          }
+       }
+    }
+ }

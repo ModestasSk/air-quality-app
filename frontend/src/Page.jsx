@@ -35,7 +35,6 @@ export default class Page extends React.Component {
     fetch('http://api.airvisual.com/v2/nearest_city?key=LdTsKf5zgrF7qQ4Mb')
       .then(res => res.json())
       .then(json => {
-        
         this.setState({
           isLoaded: true,
           item: json,

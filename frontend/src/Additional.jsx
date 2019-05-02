@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import '../styles/style.css';
 import background3 from '../public/assets/background3.png';
 import background5 from '../public/assets/background5.png';
-
+import { bake_cookie, read_cookie } from 'sfcookies';
 import {
     Container, Row, Col
 } from 'reactstrap';
@@ -19,20 +20,44 @@ export default class Additional extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://api.airvisual.com/v2/states?country=' + this.props.country + '&key=LdTsKf5zgrF7qQ4Mb')
-            .then(res => res.json())
-            .then(json => {
-                this.setState({
-                    isLoaded: true,
-                    cities: json.data,
-                })
-            });
+        var citiesTemp = read_cookie('cities'+ this.props.country);
+        if (citiesTemp.length == 0) {
+            console.log('NULL');
+            fetch('http://api.airvisual.com/v2/states?country=' + this.props.country + '&key=LdTsKf5zgrF7qQ4Mb')
+                .then(res => res.json())
+                .then(json => {
+                    this.setState({
+                        isLoaded: true,
+                        cities: json.data,
+                    })
+                });
+        }
+        if (citiesTemp.length > 0) {
+            this.setState({
+                isLoaded: true,
+                cities: citiesTemp,
+            })
+        }
     }
 
+    removeCity(index) {
+        this.state.cities.splice(index, 1);
+        this.setState({
+            isLoaded: true,
+        })
+        bake_cookie('cities'+ this.props.country, this.state.cities);
+        console.log(this.state.cities);
+    }
+
+
+
     render() {
-        let cityCards = this.state.cities.map(person => {
+        let cityCards = this.state.cities.map((city, index) => {
             return (
-                <Button key={person.state} className="button" variant="contained" size="large" color="primary" align="center" style={{ color: "white", backgroundColor: "black" }} onClick={() => this.props.handleClick(person.state, this.props.country)}>{person.state}</Button>
+                <Button key={city.state} className="button" variant="contained" size="large" color="primary" align="center" style={{ color: "white", backgroundColor: "black" }} onClick={() => this.props.handleClick(city.state, this.props.country)}>
+                    {city.state}
+                    <Button className="button" variant="contained" size="large" color="primary" align="center" style={{ color: "white", backgroundColor: "black" }} onClick={() => this.removeCity(index)}>X</Button>
+                </Button>
             )
         })
         var { isLoaded, cities } = this.state;

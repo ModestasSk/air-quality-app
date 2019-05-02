@@ -1,12 +1,24 @@
 const path = require('path');
 const express = require('express');
+const cookieParser = require('cookie-parser');
+const axios = require("axios");
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = isDeveloping ? 3000 : process.env.PORT;
 const app = express();
 
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'dist')));
+
 app.get('*', (_req, res) => {
+  /*
+  axios.get("http://api.airvisual.com/v2/nearest_city?key=LdTsKf5zgrF7qQ4Mb")
+  .then((res)=>{
+      console.log(res.data);
+      
+  })
+  */
+  
+  res.cookie('firstCookie', 'test');
   res.sendFile(path.join(__dirname, '..', 'frontend', 'dist', 'index.html'));
 });
 

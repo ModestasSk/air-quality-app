@@ -36,6 +36,8 @@
   "dependencies": {
     "@coreui/coreui": "^2.1.9",
     "@material-ui/core": "^3.9.3",
+    "axios": "^0.18.0",
+    "cookie-parser": "^1.4.4",
     "express": "^4.16.0",
     "file-loader": "^3.0.1",
     "img-loader": "^3.0.1",
@@ -44,7 +46,9 @@
     "react-country-region-selector": "^1.4.3",
     "react-dom": "^16.8.6",
     "reactstrap": "^8.0.0",
+    "request": "^2.88.0",
     "sass-loader": "^7.1.0",
+    "sfcookies": "^1.0.2",
     "style-loader": "^0.23.1",
     "typeface-roboto": "0.0.54",
     "url-loader": "^1.1.2"
